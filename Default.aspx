@@ -39,8 +39,30 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:6k185Arts4ConnectionString %>" SelectCommand="SELECT Events.EventID, Events.FestivalID, Events.PersonID, Events.LocationID, Events.Time, Festival.festivalID AS Expr1, Festival.name, Festival.year, Location.LocationID AS Expr2, Location.Name AS Expr3, Person.PersonID AS Expr4, Person.Name AS Expr5, Person.Description, Person.imagename, Person.imagepath, Person.Type FROM Events INNER JOIN Festival ON Events.FestivalID = Festival.festivalID INNER JOIN Location ON Events.LocationID = Location.LocationID INNER JOIN Person ON Events.PersonID = Person.PersonID WHERE (Events.FestivalID = 5)"></asp:SqlDataSource>
+                <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+                    <HeaderTemplate>
+                        <h2>Upcoming Events</h2>
+                         <ul class="list-group">
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                       
+                            <li class="list-group-item">
+                                <asp:Label ID="Label1" runat="server" Text='<%# Eval("Expr5") %>'></asp:Label><br />
+                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("Date") %>'></asp:Label>
+                                <span class="badge">
+                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("Time") %>' ></asp:Label>
+                                </span>
+                                <br />
+                                <asp:Label ID="Label4" runat="server" Text='<%# Eval("Expr3", "{0:d}" ) %>'></asp:Label>
+                                
+                            </li>
+                       
+                    </ItemTemplate>
+                    <FooterTemplate>
+                         </ul>
+                    </FooterTemplate>
+                </asp:Repeater>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:6k185Arts4ConnectionString %>" SelectCommand="SELECT Events.EventID, Events.FestivalID, Events.PersonID, Events.LocationID, Events.Time, Events.Date, Festival.festivalID AS Expr1, Festival.name, Festival.year, Location.LocationID AS Expr2, Location.Name AS Expr3, Person.PersonID AS Expr4, Person.Name AS Expr5, Person.Description, Person.imagename, Person.imagepath, Person.Type FROM Events INNER JOIN Festival ON Events.FestivalID = Festival.festivalID INNER JOIN Location ON Events.LocationID = Location.LocationID INNER JOIN Person ON Events.PersonID = Person.PersonID WHERE (Events.FestivalID = 5)"></asp:SqlDataSource>
             </div>
         </div>
     </div>
