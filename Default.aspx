@@ -39,9 +39,17 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+          <h1>Upcoming Events</h1>
+                         <asp:DropDownList AutoPostBack="true" CssClass="btn btn-default dropdown-toggle" ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="FestivalID"></asp:DropDownList>
+                        <br />
+                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:6k185Arts4ConnectionString %>" SelectCommand="SELECT [name], [current], [FestivalID] FROM [Festival] WHERE ([current] = @current)">
+                         <SelectParameters>
+                             <asp:Parameter DefaultValue="1"  Name="current" Type="Byte" />
+                         </SelectParameters>
+                 </asp:SqlDataSource>
+                <asp:Repeater ID="Repeater1" runat="server">
                     <HeaderTemplate>
-                        <h2>Upcoming Events</h2>
+                        <br />
                          <ul class="list-group">
                     </HeaderTemplate>
                     <ItemTemplate>
@@ -53,7 +61,7 @@
                                     <asp:Label ID="Label2" runat="server" Text='<%# Eval("Time") %>' ></asp:Label>
                                 </span>
                                 <br />
-                                <asp:Label ID="Label4" runat="server" Text='<%# Eval("Expr3", "{0:d}" ) %>'></asp:Label>
+                                <em><asp:Label ID="Label4" runat="server" Text='<%# Eval("Expr3", "{0:d}" ) %>'></asp:Label></em>
                                 
                             </li>
                        
