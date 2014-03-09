@@ -38,8 +38,11 @@
 </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
-          <h1>Upcoming Events</h1>
+            <div class="col-md-6">
+                <h1>Featured Events</h1>
+            </div>
+            <div class="col-md-4 col-md-offset-2">
+          <h3>Upcoming Events</h3>
                          <asp:DropDownList AutoPostBack="true" CssClass="btn btn-default dropdown-toggle" ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="name" DataValueField="FestivalID"></asp:DropDownList>
                         <br />
                         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:6k185Arts4ConnectionString %>" SelectCommand="SELECT [name], [current], [FestivalID] FROM [Festival] WHERE ([current] = @current)">
@@ -53,7 +56,6 @@
                          <ul class="list-group">
                     </HeaderTemplate>
                     <ItemTemplate>
-                       
                             <li class="list-group-item">
                                 <asp:Label ID="Label1" runat="server" Text='<%# Eval("Expr5") %>'></asp:Label><br />
                                 <asp:Label ID="Label3" runat="server" Text='<%# Eval("Date") %>'></asp:Label>
@@ -72,6 +74,7 @@
                 </asp:Repeater>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:6k185Arts4ConnectionString %>" SelectCommand="SELECT Events.EventID, Events.FestivalID, Events.PersonID, Events.LocationID, Events.Time, Events.Date, Festival.festivalID AS Expr1, Festival.name, Festival.year, Location.LocationID AS Expr2, Location.Name AS Expr3, Person.PersonID AS Expr4, Person.Name AS Expr5, Person.Description, Person.imagename, Person.imagepath, Person.Type FROM Events INNER JOIN Festival ON Events.FestivalID = Festival.festivalID INNER JOIN Location ON Events.LocationID = Location.LocationID INNER JOIN Person ON Events.PersonID = Person.PersonID WHERE (Events.FestivalID = 5)"></asp:SqlDataSource>
             </div>
+            
         </div>
     </div>
 </asp:Content>
