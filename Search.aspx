@@ -17,10 +17,11 @@
                         <asp:ListItem Selected="True" Text="All" Value="All">All</asp:ListItem>
                     </asp:DropDownList>
                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:6k185Arts4ConnectionString %>" SelectCommand="SELECT DISTINCT [Type] FROM [Person]"></asp:SqlDataSource>
-                    <asp:DropDownList ID="DropDownListOrderBy" runat="server">
-                        <asp:ListItem Selected="True">Date</asp:ListItem>
-                        <asp:ListItem>Name</asp:ListItem>
-                        <asp:ListItem>Most Popular</asp:ListItem>
+                    <asp:DropDownList ID="DropDownListOrderBy" runat="server" AutoPostBack="true">
+                        <asp:ListItem>Date - Newest First</asp:ListItem>
+                        <asp:ListItem>Date - Oldest First</asp:ListItem>
+                        <asp:ListItem>Name A-z</asp:ListItem>
+                        <asp:ListItem>Name Z-a</asp:ListItem>
                     </asp:DropDownList>
                 </div>
             </div>
