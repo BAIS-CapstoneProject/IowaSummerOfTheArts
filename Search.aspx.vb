@@ -11,7 +11,7 @@ Partial Class Search
         search = "SELECT Events.EventID, Events.FestivalID, Events.PersonID, Events.LocationID, Events.Time, Events.Date, Festival.festivalID AS Expr1, Festival.name, Festival.year, Location.LocationID AS Expr2, Location.Name AS Expr3, Person.PersonID AS Expr4, Person.Name AS Expr5, Person.Description, Person.imagename, Person.imagepath, Person.Type FROM Events INNER JOIN Festival ON Events.FestivalID = Festival.festivalID INNER JOIN Location ON Events.LocationID = Location.LocationID INNER JOIN Person ON Events.PersonID = Person.PersonID"
         myconn = New SqlConnection(ConfigurationManager.ConnectionStrings("6k185Arts4ConnectionString").ConnectionString.ToString)
 
-        If dropdownlistFestival.SelectedIndex <> 0 Or dropdownlistFestival.SelectedIndex <> 0 Then
+        If dropdownlistFestival.SelectedIndex <> 0 Or dropdownlistFestival.SelectedIndex <> 0 Or Request.QueryString("Query") <> String.Empty Then
             search += " Where "
         End If
         If dropdownlistFestival.SelectedIndex <> 0 Then
@@ -20,9 +20,19 @@ Partial Class Search
         End If
 
         If dropdownlistPerson.SelectedIndex <> 0 Then
+
+            If dropdownlistFestival.SelectedIndex = 0 And Request.QueryString("Query") = String.Empty Then
+                search += " Person.Type LIKE '%" + dropdownlistPerson.SelectedItem.Text + "%'"
+            End If
             search += " AND Person.Type LIKE '%" + dropdownlistPerson.SelectedItem.Text + "%'"
         End If
 
+        If Request.QueryString("Query") <> String.Empty Then
+            If dropdownlistFestival.SelectedIndex = 0 And dropdownlistPerson.SelectedIndex = 0 Then
+                search += " Person.name LIKE '%" + Request.QueryString("Query") + "%' OR Location.name LIKE '%" + Request.QueryString("Query") + "%' "
+            End If
+            search += "AND Person.name LIKE '%" + Request.QueryString("Query") + "%' OR Location.name LIKE '%" + Request.QueryString("Query") + "%' "
+        End If
 
         mycomm = New SqlDataAdapter(search, myconn)
         Dim ds As DataSet = New DataSet
@@ -47,5 +57,13 @@ Partial Class Search
 
     Protected Sub dropdownlistPerson_SelectedIndexChanged(sender As Object, e As EventArgs) Handles dropdownlistPerson.SelectedIndexChanged
         SetDataList()
+    End Sub
+
+    Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+        If IsPostBack = False And Request.QueryString("Query") <> String.Empty Then
+            tbSearchTerm.Visible = True
+            tbSearchTerm.Text = Request.QueryString("Query")
+            SetDataList()
+        End If
     End Sub
 End Class

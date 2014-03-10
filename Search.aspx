@@ -8,6 +8,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="search">
+                    <asp:TextBox ID="tbSearchTerm" runat="server" CssClass="form-control" Visible="false"></asp:TextBox>
                     <asp:DropDownList AutoPostBack="true" ID="dropdownlistFestival" AppendDataBoundItems="true" runat="server" DataSourceID="SqlDataSource1" DataTextField="name" DataValueField="festivalID">
                          <asp:ListItem Selected="True" Text="All" Value="*">All</asp:ListItem>
                     </asp:DropDownList>
