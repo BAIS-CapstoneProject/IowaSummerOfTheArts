@@ -51,11 +51,13 @@
                     <ItemTemplate>
                         <div class="media">
                             <div class="pull-left date">
-                                <%# DataBinder.Eval(Container.DataItem, "StartTime", "{0:MMM dd, yyyy}")%>
+                                <center><%# DataBinder.Eval(Container.DataItem, "StartTime", "{0:MMM dd, yyyy}")%><br />
+                                <%# DataBinder.Eval(Container.DataItem, "StartTime", "{0:hh:mm tt}")%> - <%# DataBinder.Eval(Container.DataItem, "EndTime", "{0:hh:mm tt}")%><br />
+                                    <em><%# Container.DataItem("Expr3") %></em>
+                                </center>
                             </div>
                             <div class="media-body">
                                 <h4 class="media-heading"><%# Container.DataItem("Expr5") %></h4>
-                                <em><%# Container.DataItem("Expr3") %></em>
                                 <p><%# Container.DataItem("Description") %></p>
                             </div>
                             <div class="pull-right">
