@@ -58,9 +58,10 @@
                     <ItemTemplate>
                             <li class="list-group-item">
                                 <asp:Label ID="Label1" runat="server" Text='<%# Eval("Expr5") %>'></asp:Label><br />
-                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("Date") %>'></asp:Label>
+                                <%# DataBinder.Eval(Container.DataItem, "StartTime", "{0:d}")%>
                                 <span class="badge">
-                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("Time") %>' ></asp:Label>
+                                    <%# DataBinder.Eval(Container.DataItem, "StartTime", "{0:hh:mm tt}")%> - <%# DataBinder.Eval(Container.DataItem, "EndTime", "{0:hh:mm tt}")%>
+
                                 </span>
                                 <br />
                                 <em><asp:Label ID="Label4" runat="server" Text='<%# Eval("Expr3", "{0:d}" ) %>'></asp:Label></em>

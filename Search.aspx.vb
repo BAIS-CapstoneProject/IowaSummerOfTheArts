@@ -8,7 +8,7 @@ Partial Class Search
         Dim myconn As SqlConnection
         Dim mycomm As SqlDataAdapter
         Dim search As String = String.Empty
-        search = "SELECT Events.EventID, Events.FestivalID, Events.PersonID, Events.LocationID, Events.Time, Events.Date, Festival.festivalID AS Expr1, Festival.name, Festival.year, Location.LocationID AS Expr2, Location.Name AS Expr3, Person.PersonID AS Expr4, Person.Name AS Expr5, Person.Description, Person.imagename, Person.imagepath, Person.Type FROM Events INNER JOIN Festival ON Events.FestivalID = Festival.festivalID INNER JOIN Location ON Events.LocationID = Location.LocationID INNER JOIN Person ON Events.PersonID = Person.PersonID"
+        search = "SELECT Events.EventID, Events.FestivalID, Events.PersonID, Events.LocationID, Events.StartTime, Events.EndTime, Festival.festivalID AS Expr1, Festival.name, Festival.year, Location.LocationID AS Expr2, Location.Name AS Expr3, Person.PersonID AS Expr4, Person.Name AS Expr5, Person.Description, Person.imagename, Person.imagepath, Person.Type FROM Events INNER JOIN Festival ON Events.FestivalID = Festival.festivalID INNER JOIN Location ON Events.LocationID = Location.LocationID INNER JOIN Person ON Events.PersonID = Person.PersonID"
         myconn = New SqlConnection(ConfigurationManager.ConnectionStrings("6k185Arts4ConnectionString").ConnectionString.ToString)
 
         If dropdownlistFestival.SelectedIndex <> 0 Or dropdownlistFestival.SelectedIndex <> 0 Or Request.QueryString("Query") <> String.Empty Then
@@ -41,9 +41,9 @@ Partial Class Search
         End If
 
             If DropDownListOrderBy.SelectedIndex = 0 Then
-                search += " Order By Events.date DESC"
+            search += " Order By Events.StartTime DESC"
             ElseIf DropDownListOrderBy.SelectedIndex = 1 Then
-                search += " Order By Events.date ASC"
+            search += " Order By Events.StartTime ASC"
             ElseIf DropDownListOrderBy.SelectedIndex = 2 Then
                 search += " Order By Person.name DESC"
             ElseIf DropDownListOrderBy.SelectedIndex = 3 Then
