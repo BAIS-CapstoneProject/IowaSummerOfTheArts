@@ -1,0 +1,16 @@
+﻿.test
+{
+    margin-top: 100%;
+}
+@media (min-width: 768px)
+{
+
+    .form-inline .form-group
+    {
+        padding-right: 5%;
+    }
+}
+.searchTerm
+{
+    margin-bottom: 2%;
+}

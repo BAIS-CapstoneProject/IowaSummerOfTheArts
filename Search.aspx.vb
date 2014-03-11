@@ -24,19 +24,22 @@ Partial Class Search
 
             If dropdownlistFestival.SelectedIndex = 0 And Request.QueryString("Query") = String.Empty Then
                 search += " Person.Type LIKE '%" + dropdownlistPerson.SelectedItem.Text + "%'"
+            Else
+                search += " AND Person.Type LIKE '%" + dropdownlistPerson.SelectedItem.Text + "%'"
             End If
 
-            search += " AND Person.Type LIKE '%" + dropdownlistPerson.SelectedItem.Text + "%'"
+
         End If
 
         If Request.QueryString("Query") <> String.Empty Then
             If dropdownlistFestival.SelectedIndex = 0 And dropdownlistPerson.SelectedIndex = 0 Then
                 search += " Person.name LIKE '%" + Request.QueryString("Query") + "%' OR Location.name LIKE '%" + Request.QueryString("Query") + "%' "
+            Else
+                search += "AND Person.name LIKE '%" + Request.QueryString("Query") + "%' OR Location.name LIKE '%" + Request.QueryString("Query") + "%' "
             End If
-            search += "AND Person.name LIKE '%" + Request.QueryString("Query") + "%' OR Location.name LIKE '%" + Request.QueryString("Query") + "%' "
+
         End If
 
-        If dropdownlistFestival.SelectedIndex = 0 And dropdownlistPerson.SelectedIndex = 0 And Request.QueryString("Query") = String.Empty Then
             If DropDownListOrderBy.SelectedIndex = 0 Then
                 search += " Order By Events.date DESC"
             ElseIf DropDownListOrderBy.SelectedIndex = 1 Then
@@ -46,18 +49,6 @@ Partial Class Search
             ElseIf DropDownListOrderBy.SelectedIndex = 3 Then
                 search += " Order By Person.name ASC"
             End If
-        Else
-            search += " And "
-            If DropDownListOrderBy.SelectedIndex = 0 Then
-                search += " Order By Events.date DESC"
-            ElseIf DropDownListOrderBy.SelectedIndex = 1 Then
-                search += " Order By Events.date ASC"
-            ElseIf DropDownListOrderBy.SelectedIndex = 2 Then
-                search += " Order By Person.name DESC"
-            ElseIf DropDownListOrderBy.SelectedIndex = 3 Then
-                search += " Order By Person.name ASC"
-            End If
-        End If
         
 
         mycomm = New SqlDataAdapter(search, myconn)
@@ -87,7 +78,6 @@ Partial Class Search
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
         If IsPostBack = False And Request.QueryString("Query") <> String.Empty Then
-            tbSearchTerm.Visible = True
             tbSearchTerm.Text = Request.QueryString("Query")
             SetDataList()
         End If
@@ -99,5 +89,9 @@ Partial Class Search
 
     Protected Sub DropDownListOrderBy_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DropDownListOrderBy.SelectedIndexChanged
         SetDataList()
+    End Sub
+
+    Protected Sub removeSearchBtn_Click(sender As Object, e As EventArgs) Handles removeSearchBtn.Click
+        Response.Redirect("Search.aspx?Query=" + tbSearchTerm.Text)
     End Sub
 End Class
