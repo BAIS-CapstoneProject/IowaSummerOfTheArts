@@ -14,13 +14,8 @@
 {
     margin-bottom: 2%;
 }
-
-.date
+.details
 {
-    background-color: #F2F0F2;
-    padding: 2%;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-
+    text-align: right;
 }
+

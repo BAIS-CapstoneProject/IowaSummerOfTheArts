@@ -50,18 +50,22 @@
                     </HeaderTemplate>
                     <ItemTemplate>
                         <div class="media">
-                            <div class="pull-left date">
-                                <center><%# DataBinder.Eval(Container.DataItem, "StartTime", "{0:MMM dd, yyyy}")%><br />
-                                <%# DataBinder.Eval(Container.DataItem, "StartTime", "{0:hh:mm tt}")%> - <%# DataBinder.Eval(Container.DataItem, "EndTime", "{0:hh:mm tt}")%><br />
-                                    <em><%# Container.DataItem("Expr3") %></em>
-                                </center>
-                            </div>
+                            <a class="pull-left" href="#">
+                                <asp:Image ID="Image1" CssClass="media-object" ImageUrl='<%# Bind("imagepath")%>' AlternateText='<%# Bind("imagename")%>' runat="server" />
+                            </a>
                             <div class="media-body">
-                                <h4 class="media-heading"><%# Container.DataItem("Expr5") %></h4>
-                                <p><%# Container.DataItem("Description") %></p>
-                            </div>
-                            <div class="pull-right">
-                                <a href="...">View Details</a>
+                                <h4 class="media-heading"><%# Container.DataItem("Expr5") %> <span class="label label-default"><%# Container.DataItem("Category") %></span> </h4>
+                                <p><%# Container.DataItem("Description") %></p> 
+                                <div class="pull-right details">
+                                     <%# DataBinder.Eval(Container.DataItem, "StartTime", "{0:D}")%>
+                                    <br />
+                                    <span class="badge">
+                                        <%# DataBinder.Eval(Container.DataItem, "StartTime", "{0:hh:mm tt}")%> - <%# DataBinder.Eval(Container.DataItem, "EndTime", "{0:hh:mm tt}")%>
+
+                                    </span>
+                                    <br /><br />
+                                    <a href="...">View Details</a>
+                                </div>
                             </div>
                         </div>
                         <hr />
