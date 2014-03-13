@@ -59,9 +59,10 @@
                                 <div class="pull-right details">
                                      <%# DataBinder.Eval(Container.DataItem, "StartTime", "{0:D}")%>
                                     <br />
+                                    <em><%# DataBinder.Eval(Container.DataItem, "Expr3", "{0:D}")%></em>
+                                    <br />
                                     <span class="badge">
                                         <%# DataBinder.Eval(Container.DataItem, "StartTime", "{0:hh:mm tt}")%> - <%# DataBinder.Eval(Container.DataItem, "EndTime", "{0:hh:mm tt}")%>
-
                                     </span>
                                     <br /><br />
                                     <a href="...">View Details</a>
