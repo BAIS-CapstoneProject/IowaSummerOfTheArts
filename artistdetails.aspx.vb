@@ -9,6 +9,6 @@ Partial Class artistdetails
                            Order By cust.Name Ascending
                            Select Name = cust.Name, Phone = cust.Phone
         ArtistImage.ImageUrl=
-
+        SqlDataSource1.
     End Sub
 End Class

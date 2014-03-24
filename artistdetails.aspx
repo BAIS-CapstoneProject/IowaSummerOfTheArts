@@ -9,6 +9,7 @@
             <asp:QueryStringParameter Name="PersonID" QueryStringField="PersonID" Type="Decimal" />
         </SelectParameters>
     </asp:SqlDataSource>
+    <asp:Label ID="NameLbl" runat="server" Text=""></asp:Label>
     <asp:Image ID="ArtistImage" runat="server" />
     <asp:DetailsView ID="ArtistDetailsView" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="PersonID" DataSourceID="SqlDataSource1">
         <Fields>
