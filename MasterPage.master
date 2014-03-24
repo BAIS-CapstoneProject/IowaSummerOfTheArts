@@ -43,7 +43,7 @@
                     <li><a href="#">Arts Festival</a></li>
                   </ul>
                 </li>
-                <li><a href="#">Performers</a></li>
+                <li><a href="Performers/Performers.aspx">Performers</a></li>
                 <li><a href="#">Artists</a></li>
                 <li><a href="#">Vendors</a></li>
                 <li><a href="#">Sponsors</a></li>
