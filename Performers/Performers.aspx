@@ -22,10 +22,6 @@
                 <div class="table-responsive">
                      <asp:GridView CssClass="table" ID="GridView1" GridLines="None" runat="server" AutoGenerateColumns="False" DataKeyNames="PersonID" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True">
                     <Columns>
-                        <asp:BoundField DataField="PersonID" HeaderText="PersonID" Visible="false" InsertVisible="False" ReadOnly="True" SortExpression="PersonID" />
-                        <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                        <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
-                        <asp:BoundField DataField="Hometown" HeaderText="Hometown" SortExpression="Hometown" />
                         <asp:TemplateField HeaderText="Image" SortExpression="imagepath">
                             <EditItemTemplate>
                                 <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("imagepath") %>'></asp:TextBox>
@@ -34,8 +30,12 @@
                                 <asp:Image ID="Image1" runat="server" ImageUrl='<%# Bind("ImagePath") %>' AlternateText='<%# Bind("ImageName") %>'></asp:Image>
                             </ItemTemplate>
                         </asp:TemplateField>
+                        <asp:BoundField DataField="PersonID" HeaderText="PersonID" Visible="false" InsertVisible="False" ReadOnly="True" SortExpression="PersonID" />
+                        <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                        <asp:BoundField DataField="Hometown" HeaderText="Hometown" SortExpression="Hometown" />
+                        
                         <asp:BoundField DataField="Category" HeaderText="Category" SortExpression="Category" />
-                        <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
+                        <asp:HyperLinkField DataNavigateUrlFields="PersonID" DataNavigateUrlFormatString="PerformerDetails.aspx?PersonID={0}" Text="View Details" />
                     </Columns>
                          <EmptyDataTemplate>
                              <h1>Sorry, we could not find this person</h1>
