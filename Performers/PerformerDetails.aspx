@@ -59,6 +59,9 @@
                     </asp:TemplateField>
                     <asp:BoundField DataField="Name" HeaderText="Location" SortExpression="Name" />    
                 </Columns>
+                        <EmptyDataTemplate>
+                            <h3>Sorry this Person has no upcoming events</h3>
+                        </EmptyDataTemplate>
             </asp:GridView>
                 </div>
             </div>
