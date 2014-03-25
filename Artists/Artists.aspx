@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="~/MasterPage.master" AutoEventWireup="false" CodeFile="viewartists.aspx.vb" Inherits="viewartists" %>
+﻿<%@ Page Title="" Language="VB" MasterPageFile="~/MasterPage.master" AutoEventWireup="false" CodeFile="Artists.aspx.vb" Inherits="viewartists" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -15,7 +15,7 @@
             <asp:BoundField DataField="Hometown" HeaderText="Hometown" SortExpression="Hometown" />
             <asp:BoundField DataField="Category" HeaderText="Category" SortExpression="Category" />
             <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
-            <asp:HyperLinkField DataNavigateUrlFields="personID" DataNavigateUrlFormatString="~/artistdetails.aspx?personID={0}" NavigateUrl="~/artistdetails.aspx" Text="View" />
+            <asp:HyperLinkField DataNavigateUrlFields="personID" DataNavigateUrlFormatString="~/Artists/artistdetails.aspx?personID={0}" NavigateUrl="~/artistdetails.aspx" Text="View" />
         </Columns>
     </asp:GridView>
 
