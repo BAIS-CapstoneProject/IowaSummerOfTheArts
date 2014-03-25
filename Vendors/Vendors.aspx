@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="~/MasterPage.master" AutoEventWireup="false" CodeFile="Performers.aspx.vb" Inherits="Performers_Performers" %>
+﻿<%@ Page Title="" Language="VB" MasterPageFile="~/MasterPage.master" AutoEventWireup="false" CodeFile="Vendors.aspx.vb" Inherits="Vendors_Vendors" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -32,10 +32,8 @@
                         </asp:TemplateField>
                         <asp:BoundField DataField="PersonID" HeaderText="PersonID" Visible="false" InsertVisible="False" ReadOnly="True" SortExpression="PersonID" />
                         <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                        <asp:BoundField DataField="Hometown" HeaderText="Hometown" SortExpression="Hometown" />
-                        
                         <asp:BoundField DataField="Category" HeaderText="Category" SortExpression="Category" />
-                        <asp:HyperLinkField DataNavigateUrlFields="PersonID" DataNavigateUrlFormatString="PerformerDetails.aspx?PersonID={0}" Text="View Details" />
+                        <asp:HyperLinkField DataNavigateUrlFields="PersonID" DataNavigateUrlFormatString="VendorDetails.aspx?VendorID={0}" Text="View Details" />
                     </Columns>
                          <EmptyDataTemplate>
                              <h1>Sorry, we could not find this person</h1>
@@ -43,9 +41,9 @@
                 </asp:GridView>
                 </div>
                
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:6k185Arts4ConnectionString %>" SelectCommand="SELECT [PersonID], [Name], [Description], [Hometown], [imagename], [imagepath], [Category], [Type] FROM [Person] WHERE ([Type] = 'Performer')">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:6k185Arts4ConnectionString %>" SelectCommand="SELECT [PersonID], [Name], [Description], [Hometown], [imagename], [imagepath], [Category], [Type] FROM [Person] WHERE ([Type] = 'Vendor')">
                     <SelectParameters>
-                        <asp:Parameter DefaultValue="Performer" Name="Type" Type="String" />
+                        <asp:Parameter DefaultValue="Vendor" Name="Type" Type="String" />
                     </SelectParameters>
                 </asp:SqlDataSource>
             </div>

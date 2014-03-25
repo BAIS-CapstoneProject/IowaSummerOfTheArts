@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="~/MasterPage.master" AutoEventWireup="false" CodeFile="PerformerDetails.aspx.vb" Inherits="Performers_PerformerDetails" %>
+﻿<%@ Page Title="" Language="VB" MasterPageFile="~/MasterPage.master" AutoEventWireup="false" CodeFile="VendorDetails.aspx.vb" Inherits="Vendors_VendorDetails" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <br /><br /><br /><br />
+     <br /><br /><br /><br />
     <div class="container">
         <asp:FormView ID="FormView1" runat="server" DataKeyNames="PersonID" DataSourceID="SqlDataSource1">
         <ItemTemplate>
@@ -22,12 +22,11 @@
                     <asp:Image ID="Image1" runat="server" ImageUrl='<%# Bind("ImagePath") %>' AlternateText='<%# Bind("ImageName") %>'></asp:Image>
                 </div>
                 <div class="col-md-9">
-                    <strong>Hometown:</strong> <asp:Label ID="HometownLabel" runat="server" Text='<%# Bind("Hometown") %>' />
                     <br />
                     <strong>Description:</strong> <br />
                     <p><%# Container.DataItem("Description") %></p>
                 </div>
-            </div><br /><br>
+            </div><br /><br />
         </ItemTemplate>
     </asp:FormView>
         <div class="row">
@@ -62,17 +61,15 @@
             </asp:GridView>
                 </div>
             </div>
-        </div>
     </div>
-    
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:6k185Arts4ConnectionString %>" SelectCommand="SELECT * FROM [Person] WHERE ([PersonID] = @PersonID)">
+      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:6k185Arts4ConnectionString %>" SelectCommand="SELECT * FROM [Person] WHERE ([PersonID] = @VendorID)">
         <SelectParameters>
-            <asp:QueryStringParameter Name="PersonID" QueryStringField="PersonID" Type="Decimal" />
+            <asp:QueryStringParameter Name="VendorID" QueryStringField="VendorID" Type="Decimal" />
         </SelectParameters>
     </asp:SqlDataSource>
-     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:6k185Arts4ConnectionString %>" SelectCommand="SELECT Events.EventID, Events.FestivalID, Events.PersonID, Events.LocationID, Events.StartTime, Events.EndTime, Location.LocationID AS Expr1, Location.Name, Location.Category, Festival.name AS Expr2, Festival.year FROM Events INNER JOIN Location ON Events.LocationID = Location.LocationID INNER JOIN Festival ON Events.FestivalID = Festival.festivalID WHERE ([PersonID] = @PersonID)">
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:6k185Arts4ConnectionString %>" SelectCommand="SELECT Events.EventID, Events.FestivalID, Events.PersonID, Events.LocationID, Events.StartTime, Events.EndTime, Location.LocationID AS Expr1, Location.Name, Location.Category, Festival.name AS Expr2, Festival.year FROM Events INNER JOIN Location ON Events.LocationID = Location.LocationID INNER JOIN Festival ON Events.FestivalID = Festival.festivalID WHERE ([PersonID] = @VendorID)">
                 <SelectParameters>
-                    <asp:QueryStringParameter Name="PersonID" QueryStringField="PersonID" Type="Decimal" />
+                    <asp:QueryStringParameter Name="VendorID" QueryStringField="VendorID" Type="Decimal" />
                 </SelectParameters>
             </asp:SqlDataSource>
 </asp:Content>
