@@ -48,7 +48,7 @@
                   </ul>
                 </li>
                 <li><a runat="server" href="~/Performers/Performers.aspx">Performers</a></li>
-                <li><a runat="server" href="#">Artists</a></li>
+                <li><a runat="server" href="~/Artists/Artists.aspx">Artists</a></li>
                 <li><a runat="server" href="~/Vendors/Vendors.aspx">Vendors</a></li>
                 <li><a runat="server" href="#">Sponsors</a></li>
               </ul> 
