@@ -27,7 +27,7 @@
                                 <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("imagepath") %>'></asp:TextBox>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:Image ID="Image1" runat="server" ImageUrl='<%# Bind("ImagePath") %>' AlternateText='<%# Bind("ImageName") %>'></asp:Image>
+                                <asp:Image ID="Image1" Height="100px" Width="100px" runat="server" ImageUrl='<%# Bind("ImagePath") %>' AlternateText='<%# Bind("ImageName") %>'></asp:Image>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="PersonID" HeaderText="PersonID" Visible="false" InsertVisible="False" ReadOnly="True" SortExpression="PersonID" />
