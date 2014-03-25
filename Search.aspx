@@ -50,9 +50,6 @@
                     </HeaderTemplate>
                     <ItemTemplate>
                         <div class="media">
-                            <a class="pull-left" href="#">
-                                <asp:Image ID="Image1" CssClass="media-object" ImageUrl='<%# Bind("imagepath")%>' AlternateText='<%# Bind("imagename")%>' runat="server" />
-                            </a>
                             <div class="media-body">
                                 <h4 class="media-heading"><%# Container.DataItem("Expr5") %> <span class="label label-default"><%# Container.DataItem("Category") %></span> </h4>
                                 <p><%# Container.DataItem("Description") %></p> 
