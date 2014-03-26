@@ -50,9 +50,11 @@
                     </HeaderTemplate>
                     <ItemTemplate>
                         <div class="media">
+                            <div class="pull-left">
+                                 <asp:Image ID="Image1" CssClass="img-responsive media-object gridviewimages" runat="server" ImageUrl='<%# Bind("ImagePath") %>' AlternateText='<%# Bind("ImageName") %>'></asp:Image>
+                            </div>
                             <div class="media-body">
-                                <h4 class="media-heading"><%# Container.DataItem("Expr5") %> <span class="label label-default"><%# Container.DataItem("Category") %></span> </h4>
-                                <p><%# Container.DataItem("Description") %></p> 
+                                <h4 class="media-heading"><%# Container.DataItem("Expr5") %> <span class="label label-default"><%# Container.DataItem("Category") %></span> </h4><br />
                                 <div class="pull-right details">
                                      <%# DataBinder.Eval(Container.DataItem, "StartTime", "{0:D}")%>
                                     <br />
@@ -62,7 +64,7 @@
                                         <%# DataBinder.Eval(Container.DataItem, "StartTime", "{0:hh:mm tt}")%> - <%# DataBinder.Eval(Container.DataItem, "EndTime", "{0:hh:mm tt}")%>
                                     </span>
                                     <br /><br />
-                                    <a href="...">View Details</a>
+                                    <asp:HyperLink ID="HyperLink1" runat="server">View Details</asp:HyperLink>
                                 </div>
                             </div>
                         </div>
