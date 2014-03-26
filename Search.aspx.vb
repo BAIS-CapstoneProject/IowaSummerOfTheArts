@@ -23,9 +23,9 @@ Partial Class Search
         If dropdownlistPerson.SelectedIndex <> 0 Then
 
             If dropdownlistFestival.SelectedIndex = 0 And Request.QueryString("Query") = String.Empty Then
-                search += " Person.Type LIKE '%" + dropdownlistPerson.SelectedItem.Text + "%'"
-            Else
                 search += " AND Person.Type LIKE '%" + dropdownlistPerson.SelectedItem.Text + "%'"
+            Else
+                search += " Person.Type LIKE '%" + dropdownlistPerson.SelectedItem.Text + "%'"
             End If
 
 
@@ -35,7 +35,7 @@ Partial Class Search
             If dropdownlistFestival.SelectedIndex = 0 And dropdownlistPerson.SelectedIndex = 0 Then
                 search += " Person.name LIKE '%" + Request.QueryString("Query") + "%' OR Location.name LIKE '%" + Request.QueryString("Query") + "%' "
             Else
-                search += "AND Person.name LIKE '%" + Request.QueryString("Query") + "%' OR Location.name LIKE '%" + Request.QueryString("Query") + "%' "
+                search += " AND Person.name LIKE '%" + Request.QueryString("Query") + "%' OR Location.name LIKE '%" + Request.QueryString("Query") + "%' "
             End If
 
         End If

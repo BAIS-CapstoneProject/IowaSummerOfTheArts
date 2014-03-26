@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-md-3">
                     
-                    <asp:Image ID="Image1" Width="200px" Height="200px" runat="server" ImageUrl='<%# Bind("ImagePath") %>' AlternateText='<%# Bind("ImageName") %>'></asp:Image>
+                    <asp:Image ID="Image1" CssClass="img-responsive" runat="server" ImageUrl='<%# Bind("ImagePath") %>' AlternateText='<%# Bind("ImageName") %>'></asp:Image>
                 </div>
                 <div class="col-md-9">
                     <strong>Hometown:</strong> <asp:Label ID="HometownLabel" runat="server" Text='<%# Bind("Hometown") %>' />
