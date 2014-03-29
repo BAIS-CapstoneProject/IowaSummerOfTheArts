@@ -33,12 +33,6 @@
                                     <p><%# Container.DataItem("Description") %></p>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="link">
-                                    <asp:HyperLink ID="HyperLink1" NavigateUrl="~/Search.aspx" runat="server"> <i class="glyphicon glyphicon-arrow-left"></i> Go Back</asp:HyperLink>
-                                </div>
-                            </div>
                         </div>        
                     </div>
                 </div>

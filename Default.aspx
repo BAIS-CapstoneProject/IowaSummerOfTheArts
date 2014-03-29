@@ -64,8 +64,8 @@
 
                                 </span>
                                 <br />
-                                <em><asp:Label ID="Label4" runat="server" Text='<%# Eval("Expr3", "{0:d}" ) %>'></asp:Label></em>
-                                
+                                <em><asp:Label ID="Label4" runat="server" Text='<%# Eval("Expr3", "{0:d}" ) %>'></asp:Label></em><br />
+                                <asp:HyperLink ID="HyperLink1"  runat="server" NavigateUrl=' <%# DataBinder.Eval(Container.DataItem, "EventID", "~/EventDetail.aspx?EventID={0}")%>' >View Details <i class="glyphicon glyphicon-arrow-right"></i></asp:HyperLink>
                             </li>
                        
                     </ItemTemplate>
