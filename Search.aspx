@@ -64,7 +64,7 @@
                                         <%# DataBinder.Eval(Container.DataItem, "StartTime", "{0:hh:mm tt}")%> - <%# DataBinder.Eval(Container.DataItem, "EndTime", "{0:hh:mm tt}")%>
                                     </span>
                                     <br /><br />
-                                    <asp:HyperLink ID="HyperLink1" runat="server">View Details</asp:HyperLink>
+                                    <asp:HyperLink ID="HyperLink1"  runat="server" NavigateUrl=' <%# DataBinder.Eval(Container.DataItem, "EventID", "~/EventDetail.aspx?EventID={0}")%>' >View Details</asp:HyperLink>
                                 </div>
                             </div>
                         </div>
