@@ -1,21 +1,22 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Data
+Imports System.Globalization
 
 Partial Class Admin_Schedule
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
         If (Not IsPostBack) Then
-            loadResources()
+            tbDatepickerStart.Text = Date.Now.ToString("MM/dd/yyyy")
+            updateSchedule()
+        Else
+            updateSchedule()
 
-            Dim Start = "2014-06-06"
-            DayPilotScheduler1.StartDate = Start
-            DayPilotScheduler1.DataSource = dbGetEvents(DayPilotScheduler1.StartDate, DayPilotScheduler1.Days)
-            DayPilotScheduler1.DataBind()
         End If
     End Sub
 
     Private Sub loadResources()
+        DayPilotScheduler1.Resources.Clear()
         Dim da As New SqlDataAdapter("SELECT LocationID AS LocationID, Name As LocationName FROM [Location]", ConfigurationManager.ConnectionStrings("6k185Arts4ConnectionString").ConnectionString)
         Dim dt As New DataTable()
         da.Fill(dt)
@@ -36,5 +37,15 @@ Partial Class Admin_Schedule
         da.Fill(dt)
         Return dt
     End Function
+
+    Private Sub updateSchedule()
+        loadResources()
+        Dim Start As Date = DateTime.ParseExact(tbDatepickerStart.Text, "MM/dd/yyyy", CultureInfo.InvariantCulture)
+
+        DayPilotScheduler1.StartDate = Start
+
+        DayPilotScheduler1.DataSource = dbGetEvents(Start, DayPilotScheduler1.Days)
+        DayPilotScheduler1.DataBind()
+    End Sub
 
 End Class
