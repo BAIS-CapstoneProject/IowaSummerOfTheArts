@@ -71,7 +71,7 @@ Partial Class Admin_Schedule
         lblEventID.Text = dt.Rows(0).Item(0).ToString()
         dlLocation.SelectedValue = dt.Rows(0).Item(1).ToString()
 
-        ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "modal", "openModal()", True)
+        ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "modal", "openEventDetailsModal()", True)
     End Sub
 
     Protected Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
@@ -96,6 +96,34 @@ Partial Class Admin_Schedule
             conn.Close()
         End Using
 
+        updateSchedule()
+    End Sub
+
+    Protected Sub btnAddEvent_Click(sender As Object, e As EventArgs) Handles btnAddEvent.Click
+
+        ScriptManager.RegisterStartupScript(Me.Page, Me.GetType(), "modal", "openNewEventModal()", True)
+    End Sub
+
+    Protected Sub btnNewEventSave_Click(sender As Object, e As EventArgs) Handles btnNewEventSave.Click
+        Dim festival As Integer = ddNewEventFestival.SelectedValue()
+        Dim person As Integer = ddNewEventPerformer.SelectedValue()
+        Dim location As Integer = ddNewEventLocation.SelectedValue()
+        Dim starttime As Date = DateTime.ParseExact(tbNewEventStart.Text, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture)
+        Dim endtime As Date = DateTime.ParseExact(tbNewEventEnd.Text, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture)
+
+        Using conn As New SqlConnection(ConfigurationManager.ConnectionStrings("6k185Arts4ConnectionString").ConnectionString)
+            Dim cmd As New SqlCommand("INSERT INTO Events VALUES (@festival, @person, @location, @starttime, @endtime);", conn)
+
+            cmd.Parameters.AddWithValue("festival", festival)
+            cmd.Parameters.AddWithValue("person", person)
+            cmd.Parameters.AddWithValue("location", location)
+            cmd.Parameters.AddWithValue("starttime", starttime)
+            cmd.Parameters.AddWithValue("endtime", endtime)
+
+            conn.Open()
+            cmd.ExecuteNonQuery()
+            conn.Close()
+        End Using
         updateSchedule()
     End Sub
 End Class
