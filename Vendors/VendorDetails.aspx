@@ -65,6 +65,7 @@
                 </div>
             </div>
     </div>
+        </div>
       <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:6k185Arts4ConnectionString %>" SelectCommand="SELECT * FROM [Person] WHERE ([PersonID] = @VendorID)">
         <SelectParameters>
             <asp:QueryStringParameter Name="VendorID" QueryStringField="VendorID" Type="Decimal" />

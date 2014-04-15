@@ -66,7 +66,36 @@
         </nav>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
-   
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <ul>
+                            <li><h3>About</h3></li>
+                            <p>The mission of Summer of the Arts is to bring people together in the Iowa City area to experience, learn about, and enjoy the arts!</p>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul>
+                            <li><h3>Contact</h3></li>
+                            <li><address>
+                                  <strong>Summer of the Arts</strong><br>
+                                  103 E. College Street, L100<br>
+                                  Iowa City, IA 52240<br>
+                                  <abbr title="Phone">P:</abbr> 319-337-7944<br  />
+                                  <a href="mailto:info@summerofthearts.org">info@summerofthearts.org</a>
+                                </address></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul>
+                            <li><h3>Admin</h3></li>
+                            <li><a href="~/Admin/Default.aspx" runat="server">Admin Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
 </body>
 </html>
