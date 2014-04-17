@@ -45,7 +45,7 @@
                 <li><a id="A9" runat="server" href="~/Admin/Schedule.aspx">Schedule</a></li>
                 <li><a id="A5" runat="server" href="~/Admin/Person.aspx">Persons</a></li>
                 <li><a id="A6" runat="server" href="#">Locations</a></li>
-                <li><a id="A7" runat="server" href="#">Festivals</a></li>
+                <li><a id="A7" runat="server" href="~/Admin/Festivals.aspx">Festivals</a></li>
               </ul> 
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
