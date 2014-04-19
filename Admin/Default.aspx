@@ -7,6 +7,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="container"><br /><br /><br />
         <div class="row">
+            <div class="col-md-12">
+                <h1>Dashboard</h1>
+        </div>
+        <div class="row">
             <div class="col-md-6">
                 <div class="panel panel-primary">
                     <div class="panel-heading">Timeline</div>
@@ -23,6 +27,7 @@
                     </div> 
                 </div> 
             </div>
+            </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="panel panel-primary">
@@ -37,6 +42,32 @@
                         <div class="panel-heading">Visits by City</div>
                         <div class="panel-body">  
                             <div id="table"></div>
+                        </div> 
+                    </div> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">New Visitors</div>
+                        <div class="panel-body">  
+                            <div id="newvisits" class="metric"></div>
+                        </div> 
+                    </div> 
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Total Pageviews</div>
+                        <div class="panel-body">  
+                            <div id="pageviews" class="metric"></div>
+                        </div> 
+                    </div> 
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Avg Time on Page (secs)</div>
+                        <div class="panel-body">  
+                            <div id="time" class="metric"></div>
                         </div> 
                     </div> 
                 </div>
@@ -84,6 +115,24 @@
                 table.addDimension("ga:city", "City");
 
                 table.draw('table');
+
+                var visits = new oo.Metric("85002723", "30d");
+
+                visits.setMetric("ga:newVisits");
+
+                visits.draw('newvisits');
+
+                var metric = new oo.Metric("85002723", "30d");
+
+                metric.setMetric("ga:pageviews");
+
+                metric.draw('pageviews');
+
+                var time = new oo.Metric("85002723", "30d");
+
+                time.setMetric("ga:avgTimeOnPage");
+
+                time.draw('time');
 
             });
         };
