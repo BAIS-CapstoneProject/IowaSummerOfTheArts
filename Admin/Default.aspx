@@ -47,15 +47,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">New Visitors</div>
-                        <div class="panel-body">  
-                            <div id="newvisits" class="metric"></div>
-                        </div> 
-                    </div> 
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">Total Pageviews</div>
                         <div class="panel-body">  
@@ -63,9 +55,9 @@
                         </div> 
                     </div> 
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="panel panel-primary">
-                        <div class="panel-heading">Avg Time on Page (secs)</div>
+                        <div class="panel-heading">Avg Time on Site (secs)</div>
                         <div class="panel-body">  
                             <div id="time" class="metric"></div>
                         </div> 
@@ -87,8 +79,6 @@
 
                 timeline.addMetric("ga:visits", "Visits");
 
-                timeline.addMetric("ga:newVisits", "New Visits");
-
                 timeline.draw('timeline');
 
                 var pie = new oo.Pie("85002723", "30d");
@@ -102,9 +92,7 @@
 
                 bar.addMetric("ga:visits", "Visits");
 
-                bar.addMetric("ga:newVisits", "New Visits");
-
-                bar.setDimension("ga:continent");
+                bar.setDimension("ga:country");
 
                 bar.draw('chart');
 
@@ -116,12 +104,6 @@
 
                 table.draw('table');
 
-                var visits = new oo.Metric("85002723", "30d");
-
-                visits.setMetric("ga:newVisits");
-
-                visits.draw('newvisits');
-
                 var metric = new oo.Metric("85002723", "30d");
 
                 metric.setMetric("ga:pageviews");
@@ -130,7 +112,7 @@
 
                 var time = new oo.Metric("85002723", "30d");
 
-                time.setMetric("ga:avgTimeOnPage");
+                time.setMetric("ga:avgTimeOnSite");
 
                 time.draw('time');
 
