@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <a class="btn btn-primary" href="NewLocation.aspx" role="button">Back</a>
+            <a class="btn btn-primary" href="Locations.aspx" role="button">Back</a>
     </div>
 </asp:Content>
 
