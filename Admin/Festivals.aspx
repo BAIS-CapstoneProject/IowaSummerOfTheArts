@@ -23,15 +23,16 @@
                 </UpdateParameters>
             </asp:SqlDataSource>
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-12">
                     <div class="table-responsive">
                         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-hover fest" DataKeyNames="festivalID" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True">
                             <Columns>
-                                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                                <asp:BoundField DataField="festivalID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="festivalID" />
+                                
+                                <asp:BoundField DataField="festivalID" Visible="false" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="festivalID" />
                                 <asp:BoundField DataField="name" HeaderText="Festival" SortExpression="name" />
                                 <asp:BoundField DataField="current" HeaderText="Current?" SortExpression="current" />
                                 <asp:BoundField DataField="year" HeaderText="Year" SortExpression="year" />
+                                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                             </Columns>
                         </asp:GridView>
                         

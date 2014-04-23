@@ -17,9 +17,14 @@
                     </span>
                     
                 </div>
-                <asp:DropDownList ID="catDrop" runat="server" DataSourceID="SqlDataSource2" DataTextField="Type" DataValueField="Type"></asp:DropDownList>
                 
-                <br /><br />
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Filter:</label><asp:DropDownList ID="catDrop" runat="server" DataSourceID="SqlDataSource2" CssClass="form-control" DataTextField="Type" DataValueField="Type"></asp:DropDownList>
+                
+                <br />
+                </div>
             </div>
         </div>
         <div class="col-md-12">

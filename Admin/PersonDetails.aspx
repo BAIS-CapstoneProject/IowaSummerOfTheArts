@@ -32,33 +32,35 @@
     </asp:SqlDataSource>
 <br /><br /><br /><br />
     <div class="container">
-    <asp:FormView ID="FormView1" runat="server" DataKeyNames="PersonID" DataSourceID="SqlDataSource1">
+    <asp:FormView ID="FormView1" runat="server" DataKeyNames="PersonID" RenderOuterTable="false" DataSourceID="SqlDataSource1">
         <EditItemTemplate>
             <div class="row">
-                <div class="col-md-12">
-                    <h1>
-                        <asp:TextBox ID="NameTb" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
-                        <span class="badge">
-                            <asp:Textbox ID="CatTb" runat="server" Text='<%# Bind("Category") %>' ForeColor="Black" />
-                        </span>
-                    </h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    
+                <div class="col-md-2">
                     <asp:Image ID="Image1" runat="server" ImageUrl='<%# Bind("ImagePath") %>' AlternateText='<%# Bind("ImageName") %>'></asp:Image>
                 </div>
-                <div class="col-md-9">
-                    <strong>Hometown:</strong> <asp:TextBox ID="HomeTb" runat="server" Text='<%# Bind("Hometown") %>' />
-                    <br />
-                    <strong>Description:</strong> <br />
-                    <asp:TextBox ID="DescTb" runat="server" Text='<%# Bind("Description")%>' TextMode="MultiLine" Width="300px" Height="120px"></asp:TextBox>
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label class="control-label">Name:</label>
+                        <asp:TextBox ID="NameTb" CssClass="form-control" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Category:</label>
+                         <asp:Textbox ID="CatTb" runat="server" CssClass="form-control" Text='<%# Bind("Category") %>' ForeColor="Black" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Hometown:</label>
+                        <asp:TextBox ID="TextBox1" CssClass="form-control" runat="server" Text='<%# Bind("Hometown") %>' />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Description:</label>
+                        <asp:TextBox ID="DescTb" CssClass="form-control" runat="server" Text='<%# Bind("Description")%>' TextMode="MultiLine"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                         <asp:Button ID="UpdateBtn" CssClass="btn btn-primary"  runat="server" CausesValidation="True" CommandName="Update" Text="Update"></asp:Button>
+                        <asp:Button ID="CancelBtn" CssClass=" btn btn-danger" runat="server" CausesValidation="false" CommandName="Cancel" Text="Cancel"></asp:Button>
+                    </div>
                 </div>
-                <asp:LinkButton ID="UpdateBtn" runat="server" CausesValidation="True" CommandName="Update" Text="Update"></asp:LinkButton>
-                <asp:LinkButton ID="CancelBtn" runat="server" CausesValidation="false" CommandName="Cancel" Text="Cancel"></asp:LinkButton>
             </div>
-            <br /><br>
         </EditItemTemplate>
         
         
@@ -75,7 +77,6 @@
             </div>
             <div class="row">
                 <div class="col-md-3">
-                    
                     <asp:Image ID="Image1" runat="server" ImageUrl='<%# Bind("ImagePath") %>' AlternateText='<%# Bind("ImageName") %>'></asp:Image>
                 </div>
                 <div class="col-md-9">
@@ -83,13 +84,13 @@
                     <br />
                     <strong>Description:</strong> <br />
                     <p><%# Container.DataItem("Description") %></p>
-                </div>
-                <asp:LinkButton ID="EditButton" runat="server"
+                     <asp:Button ID="EditButton" runat="server" CssClass="btn btn-primary" 
 
             CausesValidation="False" CommandName="Edit"
 
             Text="Edit">
-</asp:LinkButton>
+</asp:Button>
+                </div>
 
             </div>
             <br /><br>

@@ -21,11 +21,11 @@
                 </UpdateParameters>
             </asp:SqlDataSource>
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-12">
                     <div class="table-responsive">
                         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-hover fest" DataKeyNames="LocationID" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True">
                             <Columns>
-                                <asp:BoundField DataField="LocationID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="LocationID" />
+                                <asp:BoundField DataField="LocationID" HeaderText="ID" Visible="false" InsertVisible="False" ReadOnly="True" SortExpression="LocationID" />
                                 <asp:BoundField DataField="Name" HeaderText="Location" SortExpression="name" />
                                 <asp:BoundField DataField="Category" HeaderText="Category" SortExpression="Category" />
                                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
