@@ -15,14 +15,21 @@ Partial Class Admin_Person
     End Sub
 
     
-    Protected Sub catDrop_SelectedIndexChanged(sender As Object, e As EventArgs) Handles catDrop.SelectedIndexChanged
+
+    Protected Sub catDrop_TextChanged(sender As Object, e As EventArgs) Handles catDrop.TextChanged
         If catDrop.Text = "All Types" Then
-            Dim search As String = "SELECT [PersonID], [Name], [Description], [Hometown], [imagename], [imagepath], [Category], [Type] FROM [Person] "
-            SqlDataSource1.SelectCommand = search
+            Dim search1 As String = "SELECT [PersonID], [Name], [Description], [Hometown], [imagename], [imagepath], [Category], [Type] FROM [Person] "
+            SqlDataSource1.SelectCommand = search1
         Else
-            Dim search As String = "SELECT [PersonID], [Name], [Description], [Hometown], [imagename], [imagepath], [Category], [Type] FROM [Person] WHERE Type = '" + catDrop.Text + "'"
-            SqlDataSource1.SelectCommand = search
+            Dim search2 As String = "SELECT [PersonID], [Name], [Description], [Hometown], [imagename], [imagepath], [Category], [Type] FROM [Person] WHERE Type = '" + catDrop.Text + "'"
+            SqlDataSource1.SelectCommand = search2
         End If
+    End Sub
+
+
+
+    Protected Sub NewBtn_Click(sender As Object, e As EventArgs) Handles NewBtn.Click
+        Response.Redirect("~/Admin/NewPerson.aspx")
     End Sub
 End Class
 

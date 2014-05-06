@@ -22,9 +22,12 @@
             <div class="row">
                 <div class="col-md-4">
                     <label>Filter:</label><asp:DropDownList ID="catDrop" runat="server" DataSourceID="SqlDataSource2" CssClass="form-control" DataTextField="Type" DataValueField="Type"></asp:DropDownList>
-                
+                     
                 <br />
                 </div>
+                <br />
+                <asp:Button ID="NewBtn" CssClass="btn btn-primary" OnClick="NewBtn_Click" runat="server" CausesValidation="False"  Text="Add New Person"></asp:Button>
+                    
             </div>
         </div>
         <div class="col-md-12">

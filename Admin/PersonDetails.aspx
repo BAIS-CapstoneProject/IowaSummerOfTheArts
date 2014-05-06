@@ -90,6 +90,10 @@
 
             Text="Edit">
 </asp:Button>
+            <asp:Button ID="DeleteBtn" runat="server" CssClass="btn btn-primary" CausesValidation="False" CommandName="Delete" Text="Delete"></asp:Button>            
+            
+
+
                 </div>
 
             </div>
