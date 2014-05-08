@@ -8,9 +8,13 @@
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:6k185Arts4ConnectionString %>" SelectCommand="SELECT DISTINCT [Type] FROM [Person] ORDER BY [Type]"></asp:SqlDataSource>
     <br /><br /><br /><br />
         <div class="container">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12">
             <div class="row">
+                <asp:Button ID="NewBtn" CssClass="btn btn-primary pull-right" OnClick="NewBtn_Click" runat="server" CausesValidation="False"  Text="Add New Person"></asp:Button><br />
+            </div>
+            <div class="row"><br />
                 <div class="input-group input-group-lg">
+
                      <asp:TextBox ID="tbSearch" AutoPostBack="true" Placeholder="Search by name" CssClass="form-control" runat="server"></asp:TextBox>
                     <span class="input-group-btn">
                     <asp:Button ID="btnSearch" runat="server" CssClass="btn btn-default"  Text="Search" />
@@ -19,14 +23,14 @@
                 </div>
                 
             </div>
-            <div class="row">
+            <div class="row"><br />
                 <div class="col-md-4">
-                    <label>Filter:</label><asp:DropDownList ID="catDrop" runat="server" DataSourceID="SqlDataSource2" CssClass="form-control" DataTextField="Type" DataValueField="Type"></asp:DropDownList>
+                    <label>Filter:</label><asp:DropDownList AutoPostBack="true" ID="catDrop" runat="server" DataSourceID="SqlDataSource2" CssClass="form-control" DataTextField="Type" DataValueField="Type"></asp:DropDownList>
                      
                 <br />
                 </div>
                 <br />
-                <asp:Button ID="NewBtn" CssClass="btn btn-primary" OnClick="NewBtn_Click" runat="server" CausesValidation="False"  Text="Add New Person"></asp:Button>
+                
                     
             </div>
         </div>

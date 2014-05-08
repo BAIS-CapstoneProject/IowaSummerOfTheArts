@@ -11,7 +11,7 @@ Partial Class Search
         search = "SELECT Events.EventID, Events.FestivalID, Events.PersonID, Events.LocationID, Events.StartTime, Events.EndTime, Festival.festivalID AS Expr1, Festival.name, Festival.year, Location.LocationID AS Expr2, Location.Name AS Expr3, Person.PersonID AS Expr4, Person.Name AS Expr5, Person.Description, Person.imagename, Person.imagepath, Person.Category FROM Events INNER JOIN Festival ON Events.FestivalID = Festival.festivalID INNER JOIN Location ON Events.LocationID = Location.LocationID INNER JOIN Person ON Events.PersonID = Person.PersonID"
         myconn = New SqlConnection(ConfigurationManager.ConnectionStrings("6k185Arts4ConnectionString").ConnectionString.ToString)
 
-        If dropdownlistFestival.SelectedIndex <> 0 Or dropdownlistFestival.SelectedIndex <> 0 Or Request.QueryString("Query") <> String.Empty Then
+        If dropdownlistFestival.SelectedIndex <> 0 Or dropdownlistPerson.SelectedIndex <> 0 Or dropdownlistFestival.SelectedIndex <> 0 Or Request.QueryString("Query") <> String.Empty Then
             search += " Where "
         End If
 
@@ -57,7 +57,18 @@ Partial Class Search
         mycomm.Fill(ds)
 
         DataList1.DataSource = ds
+
+
         DataList1.DataBind()
+
+        If DataList1.Items.Count = 0 Then
+            DataList1.Visible = False
+            lblNoRecord.Visible = True
+            numberFound.Text = ""
+        Else
+            DataList1.Visible = True
+            numberFound.Text = DataList1.Items.Count.ToString() + " records found"
+        End If
     End Sub
 
     Protected Sub dropdownlistFestival_DataBound(sender As Object, e As EventArgs) Handles dropdownlistFestival.DataBound

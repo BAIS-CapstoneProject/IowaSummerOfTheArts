@@ -43,11 +43,10 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <asp:DataList ID="DataList1" runat="server" GridLines="None" RepeatLayout="Flow">
-                    <HeaderTemplate>
-                        <h1>Search Results</h1>
+                 <h1>Search Results | <asp:Label ID="numberFound" runat="server" Text=""></asp:Label></h1>
+                       
                         <hr />
-                    </HeaderTemplate>
+                <asp:DataList ID="DataList1" runat="server" GridLines="None" RepeatLayout="Flow">
                     <ItemTemplate>
                         <div class="media">
                             <div class="pull-left">
@@ -71,6 +70,7 @@
                         <hr />
                     </ItemTemplate>
                 </asp:DataList>
+                 <asp:Label Visible="false" runat="server" ID="lblNoRecord" Text="No Records Found!"></asp:Label>
             </div>
         </div>
     </div>
